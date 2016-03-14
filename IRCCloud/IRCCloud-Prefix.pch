@@ -1,0 +1,34 @@
+//
+// Prefix header for all source files of the 'IRCCloud' target in the 'IRCCloud' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "Crashlytics/Crashlytics.h"
+#endif
+
+#define OBJC_STRINGIFY(x) @#x
+#define encodeObject(x) [aCoder encodeObject:x forKey:OBJC_STRINGIFY(x)]
+#define encodeInt(x) [aCoder encodeInt:x forKey:OBJC_STRINGIFY(x)]
+#define encodeDouble(x) [aCoder encodeDouble:x forKey:OBJC_STRINGIFY(x)]
+#define encodeFloat(x) [aCoder encodeFloat:x forKey:OBJC_STRINGIFY(x)]
+#define encodeBool(x) [aCoder encodeBool:x forKey:OBJC_STRINGIFY(x)]
+
+#define decodeObject(x) x = [aDecoder decodeObjectForKey:OBJC_STRINGIFY(x)]
+#define decodeInt(x) x = [aDecoder decodeIntForKey:OBJC_STRINGIFY(x)]
+#define decodeDouble(x) x = [aDecoder decodeDoubleForKey:OBJC_STRINGIFY(x)]
+#define decodeFloat(x) x = [aDecoder decodeFloatForKey:OBJC_STRINGIFY(x)]
+#define decodeBool(x) x = [aDecoder decodeBoolForKey:OBJC_STRINGIFY(x)]
+
+#ifdef __IPHONE_9_0
+#define SupportedOrientationsReturnType UIInterfaceOrientationMask
+#else
+#define SupportedOrientationsReturnType NSUInteger
+#endif
